@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+    <h2>Form Validation</h2>
+    <form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+        <p>Username:<br>
+        <input type="text" name="user" ng-model="user" required>
+        <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+        <span ng-show="myForm.user.$error.required">Username is Required</span>
+        </span>
+        </p>
+        <p>Password:<br>
+            <input type="email" name="email" ng-model="email" required>
+            <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+            <span ng-show="myForm.email.$error.required">Email is Required</span>
+            <span ng-show="myForm.email.$error.email">Email is invalid</span>
+            </span>
+        </p>
+        <p>
+        <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.email.$invalid">
+        </p>
+        <p><br>
+        Pick a Topic:
+        <input type="radio" ng-model="myVar" value="Python">Python
+        <input type="radio" ng-model="myVar" value="Android">Android
+        <input type="radio" ng-model="myVar" value="Fullstack">Fullstack
+        </p>
+
+        <div ng-switch="myVar">
+            <div ng-switch-when="Python">
+                <h1>Welcome to the World of Python.</h1>
+            </div>
+            <div ng-switch-when="Android">
+                <h1>Welcome to the World of Android.</h1>
+            </div>
+            <div ng-switch-when="Fullstack">
+                <h1>Welcome to the World of Fullstack.</h1>
+            </div>
+        </div>
+    </form>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('validateCtrl', function($scope){
+            $scope.user = '';
+            $scope.email = '';
+        });
+    </script>
+</body>
+</html>

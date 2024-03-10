@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subtraction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ <script src="Main.js"></script>
+</head>
+<body>
+    <div ng-app="SubtractionApp" ng-controller="DemoSubController">
+        First Number:
+        <input type="text" ng-model="num1">
+        <br><br>
+        Second Number:
+        <input type="text" ng-model="num2">
+        <br><br>
+        Subtraction:{{sub()}}
+    </div>
+</body>
+</html>

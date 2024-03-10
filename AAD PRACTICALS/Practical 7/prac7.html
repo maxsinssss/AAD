@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div ng-app = "app" ng-controller="HelloWorldCtrl">
+        Enter Message: 
+        <input type="text" ng-model="message"><br><br>
+        <input type="button" name="submit" ng-click="msg()" value="Submit">
+        <h1 ng-show ="isVisible">{{message}}</h1>
+    </div>
+    <script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+    <script>
+        angular.module("app",[]).controller("HelloWorldCtrl", function($scope){
+            $scope.isVisible= false;
+            $scope.msg = function(){
+                $scope.isVisible=true;
+                $scope.message;
+            };
+        });
+    </script>
+    
+</body>
+</html>
